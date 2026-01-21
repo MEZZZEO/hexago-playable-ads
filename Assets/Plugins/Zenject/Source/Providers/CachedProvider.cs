@@ -11,11 +11,11 @@ namespace Zenject
 
         List<object> _instances;
 
-#if ZEN_MULTITHREADING
+//#if ZEN_MULTITHREADING
         readonly object _locker = new object();
-#else
+//#else
         bool _isCreatingInstance;
-#endif
+//#endif
 
         public CachedProvider(IProvider creator)
         {
@@ -40,9 +40,9 @@ namespace Zenject
         {
             get
             {
-#if ZEN_MULTITHREADING
+//#if ZEN_MULTITHREADING
                 lock (_locker)
-#endif
+//#endif
                 {
                     return _instances == null ? 0 : _instances.Count;
                 }
@@ -53,9 +53,9 @@ namespace Zenject
         // See isssue https://github.com/svermeulen/Zenject/issues/441
         public void ClearCache()
         {
-#if ZEN_MULTITHREADING
+//#if ZEN_MULTITHREADING
             lock (_locker)
-#endif
+//#endif
             {
                 _instances = null;
             }
@@ -71,9 +71,9 @@ namespace Zenject
         {
             Assert.IsNotNull(context);
 
-#if ZEN_MULTITHREADING
+//#if ZEN_MULTITHREADING
             lock (_locker)
-#endif
+//#endif
             {
                 if (_instances != null)
                 {
@@ -82,7 +82,7 @@ namespace Zenject
                     return;
                 }
 
-#if !ZEN_MULTITHREADING
+//#if !ZEN_MULTITHREADING
                 // This should only happen with constructor injection
                 // Field or property injection should allow circular dependencies
                 if (_isCreatingInstance)
@@ -94,16 +94,16 @@ namespace Zenject
                 }
 
                 _isCreatingInstance = true;
-#endif
+//#endif
 
                 var instances = new List<object>();
                 _creator.GetAllInstancesWithInjectSplit(context, args, out injectAction, instances);
                 Assert.IsNotNull(instances);
 
                 _instances = instances;
-#if !ZEN_MULTITHREADING
+//#if !ZEN_MULTITHREADING
                 _isCreatingInstance = false;
-#endif
+//#endif
                 buffer.AllocFreeAddRange(instances);
             }
         }
