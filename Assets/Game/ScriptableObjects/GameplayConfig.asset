@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe38816ce5fb46d0a5c3e362e23a70e7, type: 3}
+  m_Name: GameplayConfig
+  m_EditorClassIdentifier: 
+  _minStackSize: 4
+  _maxStackSize: 8
+  _maxColorsPerStack: 2
+  _playerStacksCount: 3
+  _mergeThreshold: 10
+  _baseMergeSpeed: 1
+  _speedMultiplier: 1.3
+  _hexFlyDuration: 0.3
+  _hexArcHeight: 5
+  _hexStackOffset: 0.1
+  _hexBaseOffset: 0.15
+  _cellBackgroundScale: 1.05
+  _dragHeight: 1.25
+  _snapDistance: 0.5
+  _initialStacksOnField: 15
+  _minInitialStackSize: 2
+  _maxInitialStackSize: 8
+  _initialFillRatio: 0.8
+  _targetMovesToSolve: 2
+  _difficulty: 0
+  _pairingProbabilityEasy: 0.9
+  _pairingProbabilityNormal: 0.495
+  _pairingProbabilityHard: 0.215
+  _balanceColorSegments: 1
+  _hexPiecePrefab:
+    _prefab: {fileID: 9065068894392097410, guid: a086a2f7599cef34093ad77081965123, type: 3}
+    _guid: a086a2f7599cef34093ad77081965123
+  _hexStackPrefab:
+    _prefab: {fileID: 1000000000000000000, guid: 0bb7b085a1a9405f9b2b8b0ed5acb1ae, type: 3}
+    _guid: 0bb7b085a1a9405f9b2b8b0ed5acb1ae
+  _gridCellPrefab:
+    _prefab: {fileID: 1000000000000000000, guid: 54447463008441efa51785b699772ae7, type: 3}
+    _guid: 54447463008441efa51785b699772ae7
+  _cellBackgroundPrefab:
+    _prefab: {fileID: 9065068894392097410, guid: 75b2c02520de18b42a262160b95787d5, type: 3}
+    _guid: 75b2c02520de18b42a262160b95787d5
+  _packshotDelayAfterTutorialSec: 20
